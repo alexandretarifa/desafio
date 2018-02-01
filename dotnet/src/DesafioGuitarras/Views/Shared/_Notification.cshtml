@@ -1,0 +1,21 @@
+﻿@using DesafioGuitarras.Models;
+@{
+    IEnumerable<NotificationModel> notifications = null;
+    if (ViewData.ContainsKey("Notification"))
+    {
+        notifications = ViewData["Notification"] as IEnumerable<NotificationModel>;
+
+        foreach (var notification in notifications)
+        {
+            <div class="alert @notification.ModalClass alert-dismissable alert-danger-custom alert clickable" role="alert" style="display:none">
+                <button type="button" class="close button-custom-alert" data-dismiss="alert" aria-hidden="true">
+                    <span class="glyphicon glyphicon-plus-sign image-custom-alert"></span>
+                </button>
+                <label class="label-custom-alert">@notification.Message</label>
+            </div>
+        }
+    }
+}
+
+
+

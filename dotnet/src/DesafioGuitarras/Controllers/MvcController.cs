@@ -34,7 +34,7 @@ namespace DesafioGuitarras.Controllers
                 return;
 
             //Elmah.ErrorSignal.FromCurrentContext().Raise(filterContext.Exception);
-            var exception = (filterContext.Exception != null) ? filterContext.Exception : new Exception("No details"));
+            var exception = filterContext.Exception ?? new Exception("No details");
             AddNotification(exception);
             filterContext.ExceptionHandled = true;
 
