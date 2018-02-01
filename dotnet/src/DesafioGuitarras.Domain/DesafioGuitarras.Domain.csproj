@@ -31,7 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DomainValidation, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\DomainValidation.1.0.0\lib\net453\DomainValidation.dll</HintPath>
+      <HintPath>..\..\packages\DomainValidation.1.0.0\lib\net453\DomainValidation.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -46,15 +46,21 @@
     <Compile Include="Entities\EletricGuitar.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Interfaces\IService.cs" />
+    <Compile Include="Interfaces\IUnitOfWork.cs" />
     <Compile Include="Interfaces\Repositories\IEletricGuitarRepository.cs" />
     <Compile Include="Interfaces\Services\IEletricGuitarService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\EletricGuitarService.cs" />
+    <Compile Include="Services\Service.cs" />
+    <Compile Include="Specifications\EletricGuitars\DescriptionMaxLength.cs" />
+    <Compile Include="Specifications\EletricGuitars\ImageUrlLength.cs" />
+    <Compile Include="Specifications\EletricGuitars\NameMaxLength.cs" />
+    <Compile Include="Specifications\EletricGuitars\SkuFormat.cs" />
+    <Compile Include="Specifications\EletricGuitars\SkuMaxLength.cs" />
+    <Compile Include="Validations\EletricGuitars\FitForRegistering.cs" />
+    <Compile Include="Validations\EletricGuitars\SkuFormatValidation.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Services\" />
-    <Folder Include="Specifications\EletricGuitars\" />
-    <Folder Include="Validations\EletricGuitars\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>

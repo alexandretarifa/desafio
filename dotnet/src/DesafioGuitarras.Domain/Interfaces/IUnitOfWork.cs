@@ -1,4 +1,4 @@
-﻿namespace DesafioGuitarras.Data.Interfaces
+﻿namespace DesafioGuitarras.Domain.Interfaces
 {
     public interface IUnitOfWork
     {

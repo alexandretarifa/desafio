@@ -5,6 +5,6 @@ namespace DesafioGuitarras.Domain.Specifications.EletricGuitars
 {
     public class ImageUrlLength : ISpecification<EletricGuitar>
     {
-        public bool IsSatisfiedBy(EletricGuitar entity) => entity.ImageUrl.Length < 8001;
+        public bool IsSatisfiedBy(EletricGuitar entity) => entity.ImageUrl == null || entity.ImageUrl.Length < 8001;
     }
 }

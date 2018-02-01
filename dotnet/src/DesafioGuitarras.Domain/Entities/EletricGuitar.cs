@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DomainValidation.Validation;
+using System;
 
 namespace DesafioGuitarras.Domain.Entities
 {
@@ -10,10 +11,8 @@ namespace DesafioGuitarras.Domain.Entities
         public string Description { get; set; }
         public DateTime InsertDate { get; set; }
         public string ImageUrl { get; set; }
-        public string Sku
-        {
-            get => $"{Id}_{Name.Replace(' ', '_').ToLower()}"; 
-            set { }
-        }
+        public string Sku { get; set; }
+
+        public ValidationResult Validation { get; set; }
     }
 }
