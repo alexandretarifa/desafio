@@ -30,6 +30,8 @@ namespace DesafioGuitarras.Data.Mapping
             Property(t => t.Sku)
                 .IsOptional()
                 .HasMaxLength(500);
+
+            Ignore(t => t.Validation);
         }
     }
 }
