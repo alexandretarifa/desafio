@@ -203,13 +203,18 @@
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\loading-bar.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\startups.js" />
+    <Content Include="Scripts\ui-interaction.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -225,10 +230,15 @@
     <Content Include="Views\Shared\_ConfirmationModal.cshtml" />
     <Content Include="Views\Shared\_ProgressBar.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\EletricGuitar\Index.cshtml" />
+    <Content Include="Views\EletricGuitar\_Filter.cshtml" />
+    <Content Include="Views\EletricGuitar\_Result.cshtml" />
+    <Content Include="Views\Shared\_NoResultFound.cshtml" />
+    <Content Include="Views\EletricGuitar\Create.cshtml" />
+    <Content Include="Views\EletricGuitar\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\EletricGuitar\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

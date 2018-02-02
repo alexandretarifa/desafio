@@ -27,6 +27,7 @@
         </div>
     </div>
     <div class="container body-content">
+        <br />
         <div id="notifications">@Html.Partial("_Notification")</div>
         @RenderBody()
         <hr />
@@ -37,6 +38,7 @@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/startups")
     @RenderSection("bundles", required: false)
     @RenderSection("scripts", required: false)
     @RenderSection("modals", required: false)

@@ -1,0 +1,86 @@
+﻿@using DesafioGuitarras.Domain.Entities;
+@model IEnumerable<EletricGuitar>
+<div class="panel panel-primary">
+    <div class="panel-heading">Quantidade: @Model.Count()</div>
+    <div class="panel-body table-responsive">
+        @if (Model.Any())
+        {
+
+            <table class="table table-striped table-hover table-condensed table-bordered text-center">
+                <thead>
+                    <tr>
+                        <th class="text-center">@Html.DisplayNameFor(model => model.Id)</th>
+                        <th class="text-center">@Html.DisplayNameFor(model => model.Name)</th>
+                        <th class="text-center">@Html.DisplayNameFor(model => model.Price)</th>
+                        <th class="text-center">@Html.DisplayNameFor(model => model.Description)</th>
+                        <th class="text-center">@Html.DisplayNameFor(model => model.InsertDate)</th>
+                        <th class="text-center">Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td title="Sku: @item.Sku" data-toggle="tooltip">@item.Id</td>
+                            <td>@item.Name</td>
+                            <td>R$ @item.Price</td>
+                            <td class="break-word">@item.Description</td>
+                            <td class="break-word">@item.InsertDate</td>
+                            <td class="text-center">
+                                <a href="@Url.Action("Edit", "EletricGuitar", new { id = item.Id})" class="btn btn-default" title="Editar" data-toggle="tooltip"><span class="glyphicon glyphicon-pencil"></span></a>
+                                <a href="#" class="btn btn-danger delete" title="Deletar" data-id="@item.Id" data-name="@item.Name" data-toggle="tooltip"><span class="glyphicon glyphicon-trash"></span></a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <script>
+                var view = {
+                    events: {
+                        deleteEvent: function (event) {
+                            event.preventDefault();
+                            var name = $(this).data("name");
+                            var id = $(this).data("id");
+                            uiInteraction.showConfirmationModal({
+                                title: "Confirmação",
+                                message:  "Deseja mesmo excluir o registro [" + name + "]?",
+                                buttonCssClass: "btn-danger",
+                                buttonText: "Deletar",
+                                cancellable: true,
+                                onConfirm: function () {
+                                    $.ajax({
+                                        url: '@Url.Action("Delete", "EletricGuitar")',
+                                        traditional: true,
+                                        type: 'GET',
+                                        cache: false,
+                                        data: { id: id },
+                                        success: function (result) {
+                                            uiInteraction.showNotifications(result);
+                                            $('form').submit();
+                                        }
+                                    });
+                                }
+                            });
+                        },
+
+                        onDeleted: function (result) {
+                            uiInteraction.closeConfirmationModal();
+                            $('#notifications').html(result);
+                            uiInteraction.showNotifications();
+                        }
+                    },
+
+                    init: function () {
+                        uiInteraction.bindTooltip();
+                        $('.delete').click(view.events.deleteEvent);
+                    }
+                }
+                view.init();
+            </script>
+        }
+        else
+        {
+            Html.RenderPartial("_NoResultFound");
+        }
+    </div>
+</div>

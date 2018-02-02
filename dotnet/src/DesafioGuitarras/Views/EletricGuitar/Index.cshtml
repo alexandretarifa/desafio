@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "Guitarras";
+}
+
+<h3>Guitarras</h3>
+
+@using (Ajax.BeginForm("Search", "EletricGuitar", new AjaxOptions
+{
+    HttpMethod = "POST",
+    UpdateTargetId = "resultSearch",
+    InsertionMode = InsertionMode.Replace,
+    OnBegin = "onBegin",
+    OnComplete = "onComplete",
+    OnSuccess = "onSuccess"
+}))
+{
+    @Html.Partial("_ConfirmationModal")
+    @Html.Partial("_Filter")
+    <div id="resultSearch"></div>
+}
+@section scripts{
+    <script>
+        $('form').submit();
+    </script>
+}

@@ -17,6 +17,7 @@ namespace DesafioGuitarras.Domain.Services
 
         public override EletricGuitar Add(EletricGuitar entity)
         {
+            entity.InsertDate = System.DateTime.Now;
             entity.Validation = new FitForRegistering().Validate(entity);
             if(entity.Validation.IsValid)
             {

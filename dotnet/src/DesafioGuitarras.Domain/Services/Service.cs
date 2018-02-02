@@ -28,7 +28,16 @@ namespace DesafioGuitarras.Domain.Services
 
         public virtual bool Delete(Entity entity) => _repository.Delete(entity);
 
-        public virtual bool Delete(object id) => _repository.Delete(GetByPrimaryKey(id));
+        public virtual bool Delete(object id)
+        {
+            if (_repository.Delete(GetByPrimaryKey(id)))
+            {
+                SaveChanges();
+                return true;
+            }
+
+            return false;
+        }
 
         public virtual bool Delete(IEnumerable<Entity> entities)
         {

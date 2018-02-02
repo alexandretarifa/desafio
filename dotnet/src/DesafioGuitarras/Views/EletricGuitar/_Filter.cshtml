@@ -1,0 +1,27 @@
+﻿@model DesafioGuitarras.Domain.Entities.EletricGuitar
+
+<div class="panel panel-primary">
+    <div class="panel-heading collapsable">
+        <div class="form-inline">
+            <strong>Filtro</strong>
+            <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
+        </div>
+    </div>
+    <div class="panel-body collapse in">
+        <div class="form-inline">
+            <div class="row">
+
+            </div>
+            <div class="row text-center">
+                <br />
+                <button type="submit" class="btn btn-primary" id="btnSearch">
+                    <i class="glyphicon glyphicon-search"></i> Pesquisar
+                </button>
+                <a href="~/EletricGuitar/Create" class="btn btn-info">
+                    <span class="glyphicon glyphicon-plus"></span> Criar Novo
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+@Html.Partial("_ProgressBar")
