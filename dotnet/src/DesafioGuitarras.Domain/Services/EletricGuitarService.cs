@@ -54,7 +54,7 @@ namespace DesafioGuitarras.Domain.Services
                 }
             }
 
-            return base.Edit(entity);
+            return entity;
         }
 
     }

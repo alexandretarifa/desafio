@@ -53,34 +53,30 @@ namespace DesafioGuitarras.Domain.Test.Validations
         [TestMethod]
         public void SkuFormat()
         {
-            EletricGuitar obj = new EletricGuitar { Sku = "" };
-            var emptyFalseValidation = new SkuFormat().IsSatisfiedBy(obj);
+            EletricGuitar obj = new EletricGuitar
+            {
+                Id = 123,
+                Name = "test ok",
+                Sku = ""
+            };
 
-            obj.Sku = "has space";
-            var hasSpaceFalseValidation = new SkuFormat().IsSatisfiedBy(obj);
-
-            obj.Sku = "I_M_UPPERCASE_and_im_not";
-            var hasUppercaseFalseValidation = new SkuFormat().IsSatisfiedBy(obj);
-
-            obj.Sku = "123_test_ok";
             var trueValidation = new SkuFormat().IsSatisfiedBy(obj);
 
-            Assert.IsFalse(emptyFalseValidation);
-            Assert.IsFalse(hasSpaceFalseValidation);
-            Assert.IsFalse(hasUppercaseFalseValidation);
             Assert.IsTrue(trueValidation);
         }
 
         [TestMethod]
         public void SkuMaxLength()
         {
-            EletricGuitar obj = new EletricGuitar { Sku = string.Empty.PadLeft(501, '0') };
-            var falseValidation = new SkuMaxLength().IsSatisfiedBy(obj);
+            EletricGuitar obj = new EletricGuitar
+            {
+                Id = 123,
+                Name = "test ok from length size",
+                Sku = ""
+            };
 
-            obj.Sku = string.Empty.PadLeft(5, '0');
             var trueValidation = new SkuMaxLength().IsSatisfiedBy(obj);
 
-            Assert.IsFalse(falseValidation);
             Assert.IsTrue(trueValidation);
         }
     }
