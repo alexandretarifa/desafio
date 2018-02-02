@@ -19,6 +19,7 @@ namespace DesafioGuitarras.Domain.Entities
 
         [StringLength(800)]
         [Display(Name = "Descrição")]
+        [Required(ErrorMessage = "Campo nome é obrigatório")]
         public string Description { get; set; }
 
         [Display(Name = "Data de Inserção")]
